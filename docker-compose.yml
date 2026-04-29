@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: etherapy-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: etherapy_db
+    ports:
+      - "5435:5432"
+    volumes:
+      - etherapy-data:/var/lib/postgresql/data
+
+volumes:
+  etherapy-data:
+
+
