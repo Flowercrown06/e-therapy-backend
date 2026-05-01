@@ -1,5 +1,6 @@
 package az.nexus.etherapybackend.service;
 
+import az.nexus.etherapybackend.auth.MyUserDetails;
 import az.nexus.etherapybackend.dto.request.LoginRequest;
 import az.nexus.etherapybackend.dto.request.RegisterRequest;
 import az.nexus.etherapybackend.dto.response.LoginResponse;
@@ -60,7 +61,7 @@ public class AuthService {
         User user = userRepository.findByEmail(request.email())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
-        String token = jwtService.generateToken(user);
+        String token = jwtService.generateToken(new MyUserDetails(user));
         log.info("Login successful. Token generated for: {}", request.email());
 
         return LoginResponse.builder()

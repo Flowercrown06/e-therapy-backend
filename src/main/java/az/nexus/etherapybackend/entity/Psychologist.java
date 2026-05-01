@@ -15,6 +15,8 @@ public class Psychologist {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
+    private String surname;
     private String specialization;
     private Integer experience;
     private String education;
