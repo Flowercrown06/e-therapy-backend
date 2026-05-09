@@ -3,7 +3,6 @@ package az.nexus.etherapybackend.entity;
 import az.nexus.etherapybackend.enums.ReservationStatus;
 import jakarta.persistence.*;
 import lombok.*;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;

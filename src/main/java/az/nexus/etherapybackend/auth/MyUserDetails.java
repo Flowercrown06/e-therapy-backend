@@ -18,8 +18,7 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Rolun önünə "ROLE_" əlavə etmək Spring Security-nin hasRole() yoxlaması üçün vacibdir
-        return List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().name().toUpperCase()));
+         return List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().name().toUpperCase()));
     }
 
     @Override
@@ -29,11 +28,9 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        // Bizim sistemdə username olaraq email istifadə olunur
-        return user.getEmail();
+         return user.getEmail();
     }
 
-    // Sənin istədiyin xüsusi metod: ID-ni bazaya getmədən götürmək üçün
     public Long getUserId() {
         return user.getId();
     }

@@ -17,11 +17,9 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        // Bazada email ilə axtarış edirik
-        User user = userRepository.findByEmail(email)
+         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("İstifadəçi tapılmadı: " + email));
 
-        // Tapılan User-i öz CustomUserDetails obyektimizə büküb qaytarırıq
-        return new MyUserDetails(user);
+         return new MyUserDetails(user);
     }
 }
